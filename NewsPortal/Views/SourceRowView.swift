@@ -2,6 +2,7 @@ import SwiftUI
 
 struct SourceRowView: View {
     let source: Source
+    let onRemove: () -> Void
 
     var body: some View {
         HStack(spacing: 8) {
@@ -36,6 +37,20 @@ struct SourceRowView: View {
                     .padding(.vertical, 2)
                     .background(Color.accentColor, in: Capsule())
             }
+
+            Menu {
+                Button(role: .destructive, action: onRemove) {
+                    Label("Remove", systemImage: "trash")
+                }
+            } label: {
+                Image(systemName: "ellipsis")
+                    .foregroundStyle(.secondary)
+                    .frame(width: 20, height: 20)
+                    .contentShape(Rectangle())
+            }
+            .menuStyle(.borderlessButton)
+            .menuIndicator(.hidden)
+            .fixedSize()
         }
         .contentShape(Rectangle())
     }

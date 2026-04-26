@@ -9,10 +9,21 @@ struct SourceListView: View {
     var body: some View {
         List(selection: $selectedSourceID) {
             ForEach(store.sortedSources) { source in
-                SourceRowView(source: source)
-                    .tag(source.id)
+                SourceRowView(source: source) {
+                    if selectedSourceID == source.id {
+                        selectedSourceID = nil
+                    }
+                    store.remove(id: source.id)
+                }
+                .tag(source.id)
             }
             .onDelete { offsets in
+                let sorted = store.sortedSources
+                for offset in offsets {
+                    if selectedSourceID == sorted[offset].id {
+                        selectedSourceID = nil
+                    }
+                }
                 store.remove(at: offsets)
             }
         }
