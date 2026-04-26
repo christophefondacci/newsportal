@@ -61,6 +61,13 @@ class SourceStore: ObservableObject {
         }
     }
 
+    func updateFavicon(id: UUID, data: Data) {
+        if let index = sources.firstIndex(where: { $0.id == id }) {
+            sources[index].faviconData = data
+            save()
+        }
+    }
+
     func load() {
         guard FileManager.default.fileExists(atPath: fileURL.path) else { return }
         do {

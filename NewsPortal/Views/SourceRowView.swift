@@ -4,7 +4,18 @@ struct SourceRowView: View {
     let source: Source
 
     var body: some View {
-        HStack {
+        HStack(spacing: 8) {
+            if let data = source.faviconData, let nsImage = NSImage(data: data) {
+                Image(nsImage: nsImage)
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                    .frame(width: 16, height: 16)
+            } else {
+                Image(systemName: "globe")
+                    .frame(width: 16, height: 16)
+                    .foregroundStyle(.secondary)
+            }
+
             VStack(alignment: .leading, spacing: 2) {
                 Text(source.title)
                     .font(.body)

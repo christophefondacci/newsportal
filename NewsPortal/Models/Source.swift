@@ -1,3 +1,4 @@
+import AppKit
 import Foundation
 
 struct Source: Identifiable, Codable, Equatable {
@@ -5,16 +6,23 @@ struct Source: Identifiable, Codable, Equatable {
     var url: URL
     var title: String
     var rssURL: URL?
+    var faviconData: Data?
     var readArticleIDs: Set<String>
     var knownArticleIDs: Set<String>
 
-    init(id: UUID = UUID(), url: URL, title: String, rssURL: URL? = nil) {
+    init(id: UUID = UUID(), url: URL, title: String, rssURL: URL? = nil, faviconData: Data? = nil) {
         self.id = id
         self.url = url
         self.title = title
         self.rssURL = rssURL
+        self.faviconData = faviconData
         self.readArticleIDs = []
         self.knownArticleIDs = []
+    }
+
+    var needsFaviconRefresh: Bool {
+        guard let data = faviconData else { return true }
+        return NSImage(data: data) == nil
     }
 
     var unreadCount: Int {

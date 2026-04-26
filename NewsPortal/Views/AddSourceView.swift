@@ -66,7 +66,8 @@ struct AddSourceView: View {
         Task {
             do {
                 let metadata = try await pageFetcher.fetch(url: url)
-                let source = Source(url: url, title: metadata.title, rssURL: metadata.rssURL)
+                let faviconData = await pageFetcher.fetchFavicon(for: url, faviconURL: metadata.faviconURL)
+                let source = Source(url: url, title: metadata.title, rssURL: metadata.rssURL, faviconData: faviconData)
                 store.add(source)
                 dismiss()
             } catch {

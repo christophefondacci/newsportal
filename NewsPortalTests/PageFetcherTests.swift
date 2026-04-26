@@ -85,4 +85,66 @@ final class PageFetcherTests: XCTestCase {
         let base = URL(string: "https://example.com")!
         XCTAssertNil(PageFetcher.extractRSSLink(from: html, baseURL: base))
     }
+
+    // MARK: - Favicon link extraction
+
+    func testExtractFaviconLink() {
+        let html = """
+        <html><head>
+        <link rel="icon" href="https://example.com/favicon.png">
+        </head></html>
+        """
+        let base = URL(string: "https://example.com")!
+        let result = PageFetcher.extractFaviconLink(from: html, baseURL: base)
+        XCTAssertEqual(result?.absoluteString, "https://example.com/favicon.png")
+    }
+
+    func testExtractShortcutIconLink() {
+        let html = """
+        <html><head>
+        <link rel="shortcut icon" href="/favicon.ico">
+        </head></html>
+        """
+        let base = URL(string: "https://example.com")!
+        let result = PageFetcher.extractFaviconLink(from: html, baseURL: base)
+        XCTAssertEqual(result?.absoluteString, "https://example.com/favicon.ico")
+    }
+
+    func testExtractFaviconRelativeURL() {
+        let html = """
+        <html><head>
+        <link rel="icon" href="/img/icon.png">
+        </head></html>
+        """
+        let base = URL(string: "https://example.com/section/")!
+        let result = PageFetcher.extractFaviconLink(from: html, baseURL: base)
+        XCTAssertEqual(result?.absoluteString, "https://example.com/img/icon.png")
+    }
+
+    func testExtractFaviconReturnsNilWhenMissing() {
+        let html = "<html><head><title>No icon</title></head></html>"
+        let base = URL(string: "https://example.com")!
+        XCTAssertNil(PageFetcher.extractFaviconLink(from: html, baseURL: base))
+    }
+
+    func testExtractFaviconIgnoresStylesheet() {
+        let html = """
+        <html><head>
+        <link rel="stylesheet" href="/style.css">
+        </head></html>
+        """
+        let base = URL(string: "https://example.com")!
+        XCTAssertNil(PageFetcher.extractFaviconLink(from: html, baseURL: base))
+    }
+
+    func testExtractAppleTouchIcon() {
+        let html = """
+        <html><head>
+        <link rel="apple-touch-icon" href="/apple-icon.png">
+        </head></html>
+        """
+        let base = URL(string: "https://example.com")!
+        let result = PageFetcher.extractFaviconLink(from: html, baseURL: base)
+        XCTAssertEqual(result?.absoluteString, "https://example.com/apple-icon.png")
+    }
 }
