@@ -1,0 +1,48 @@
+name: NewsPortal
+options:
+  deploymentTarget:
+    macOS: "14.0"
+  bundleIdPrefix: com.newsportal
+
+packages:
+  FeedKit:
+    url: https://github.com/nmdias/FeedKit
+    exactVersion: 9.1.2
+
+targets:
+  NewsPortal:
+    type: application
+    platform: macOS
+    sources:
+      - NewsPortal
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.newsportal.app
+        MARKETING_VERSION: "1.0.0"
+        CURRENT_PROJECT_VERSION: "1"
+        SWIFT_VERSION: "5.9"
+        MACOSX_DEPLOYMENT_TARGET: "14.0"
+        PRODUCT_NAME: NewsPortal
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_NSMainNibFile: ""
+        INFOPLIST_KEY_NSPrincipalClass: NSApplication
+        com.apple.security.network.client: true
+    dependencies:
+      - package: FeedKit
+    entitlements:
+      path: NewsPortal/NewsPortal.entitlements
+      properties:
+        com.apple.security.app-sandbox: true
+        com.apple.security.network.client: true
+
+  NewsPortalTests:
+    type: bundle.unit-test
+    platform: macOS
+    sources:
+      - NewsPortalTests
+    settings:
+      base:
+        SWIFT_VERSION: "5.9"
+        GENERATE_INFOPLIST_FILE: YES
+    dependencies:
+      - target: NewsPortal
