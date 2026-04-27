@@ -9,14 +9,19 @@
 /* Begin PBXBuildFile section */
 		034603DB901D53EEF8FAFC81 /* Source.swift in Sources */ = {isa = PBXBuildFile; fileRef = 94079D19E20408060C1BB3C6 /* Source.swift */; };
 		0F0A6E098ABF365A2BDDA670 /* SourceStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D5FDE2D8B1069AAB407BC92 /* SourceStore.swift */; };
+		2DBDAF8D0042D8DCB58FE33D /* Quiz.swift in Sources */ = {isa = PBXBuildFile; fileRef = F36E7631B7AA316AEF94C8A4 /* Quiz.swift */; };
 		2F02158DC9210F08011AB680 /* RSSService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 11826BC8D312B799ACA721A1 /* RSSService.swift */; };
 		36AF5879CF0DE2BF37AC9631 /* AddSourceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 51C5EF6D5B9FE1BCA3DD5D7F /* AddSourceView.swift */; };
 		3907C0302D2DAFEC42A72450 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ECB79F730A6804749CD444ED /* ContentView.swift */; };
+		683FD53FD5239EA53D4C9229 /* QuizTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 10ED249A9868EFD80783E922 /* QuizTests.swift */; };
+		6BCA8BD1FD61B550DB48CAB6 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9C2C008F6403AE646DBD5FA /* SettingsView.swift */; };
+		703005898EFFE2BAED15E55F /* QuizView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468E45C79B59DD24318ECBA /* QuizView.swift */; };
 		7B5C93A3B453308EA5BD6B51 /* SourceRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 862C5240E83017F670B5E063 /* SourceRowView.swift */; };
 		7FC9E7318D3003A96BD5951A /* PageFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1A2CC60E9DFB32B9E0686DD2 /* PageFetcher.swift */; };
 		81880134AED09B95A7E900E1 /* NewsPortalApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 173D9ACA37355C15FE9639C6 /* NewsPortalApp.swift */; };
 		8A522D0AD524A07E3DA4B11A /* SourceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6A3D63CF5E66EFAC9EC75E16 /* SourceTests.swift */; };
 		AEBE754B89D776FA14E58C9A /* RSSServiceTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8BA471EB098F7E6FACE5D05A /* RSSServiceTests.swift */; };
+		AFD676409A2D0EB503196E86 /* QuizService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 41E271EBFE379A8EE32F219B /* QuizService.swift */; };
 		DB39454F18B2C34A2EE31905 /* SourceStoreTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA2CE899CC92F0E336618E8C /* SourceStoreTests.swift */; };
 		E01D0578997CC36AF57D28C2 /* PageFetcherTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B6B2B31A61F93092D7B5127E /* PageFetcherTests.swift */; };
 		F45E61765E4BFB3703089C1A /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D8F368731A94AA5381F01F4 /* WebView.swift */; };
@@ -40,9 +45,11 @@
 		0D5FDE2D8B1069AAB407BC92 /* SourceStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStore.swift; sourceTree = "<group>"; };
 		0D8F368731A94AA5381F01F4 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
 		10AF3A4C2F8686524A4AA075 /* NewsPortal.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = NewsPortal.entitlements; sourceTree = "<group>"; };
+		10ED249A9868EFD80783E922 /* QuizTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizTests.swift; sourceTree = "<group>"; };
 		11826BC8D312B799ACA721A1 /* RSSService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSService.swift; sourceTree = "<group>"; };
 		173D9ACA37355C15FE9639C6 /* NewsPortalApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewsPortalApp.swift; sourceTree = "<group>"; };
 		1A2CC60E9DFB32B9E0686DD2 /* PageFetcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFetcher.swift; sourceTree = "<group>"; };
+		41E271EBFE379A8EE32F219B /* QuizService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizService.swift; sourceTree = "<group>"; };
 		43020C4CD99EFBCCD3A859FA /* NewsPortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NewsPortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		51C5EF6D5B9FE1BCA3DD5D7F /* AddSourceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddSourceView.swift; sourceTree = "<group>"; };
 		6A3D63CF5E66EFAC9EC75E16 /* SourceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceTests.swift; sourceTree = "<group>"; };
@@ -50,8 +57,11 @@
 		8BA471EB098F7E6FACE5D05A /* RSSServiceTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSSServiceTests.swift; sourceTree = "<group>"; };
 		94079D19E20408060C1BB3C6 /* Source.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Source.swift; sourceTree = "<group>"; };
 		B6B2B31A61F93092D7B5127E /* PageFetcherTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PageFetcherTests.swift; sourceTree = "<group>"; };
+		C468E45C79B59DD24318ECBA /* QuizView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuizView.swift; sourceTree = "<group>"; };
 		CA2CE899CC92F0E336618E8C /* SourceStoreTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SourceStoreTests.swift; sourceTree = "<group>"; };
+		E9C2C008F6403AE646DBD5FA /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		ECB79F730A6804749CD444ED /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		F36E7631B7AA316AEF94C8A4 /* Quiz.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Quiz.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				B6B2B31A61F93092D7B5127E /* PageFetcherTests.swift */,
+				10ED249A9868EFD80783E922 /* QuizTests.swift */,
 				8BA471EB098F7E6FACE5D05A /* RSSServiceTests.swift */,
 				CA2CE899CC92F0E336618E8C /* SourceStoreTests.swift */,
 				6A3D63CF5E66EFAC9EC75E16 /* SourceTests.swift */,
@@ -94,6 +105,7 @@
 			isa = PBXGroup;
 			children = (
 				1A2CC60E9DFB32B9E0686DD2 /* PageFetcher.swift */,
+				41E271EBFE379A8EE32F219B /* QuizService.swift */,
 				11826BC8D312B799ACA721A1 /* RSSService.swift */,
 			);
 			path = Services;
@@ -112,6 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				51C5EF6D5B9FE1BCA3DD5D7F /* AddSourceView.swift */,
+				C468E45C79B59DD24318ECBA /* QuizView.swift */,
+				E9C2C008F6403AE646DBD5FA /* SettingsView.swift */,
 				0A41B4B42D6D1881554B0377 /* SourceListView.swift */,
 				862C5240E83017F670B5E063 /* SourceRowView.swift */,
 				0D8F368731A94AA5381F01F4 /* WebView.swift */,
@@ -122,6 +136,7 @@
 		D2F61B60EF1205E0253E13D3 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				F36E7631B7AA316AEF94C8A4 /* Quiz.swift */,
 				94079D19E20408060C1BB3C6 /* Source.swift */,
 				0D5FDE2D8B1069AAB407BC92 /* SourceStore.swift */,
 			);
@@ -220,7 +235,11 @@
 				3907C0302D2DAFEC42A72450 /* ContentView.swift in Sources */,
 				81880134AED09B95A7E900E1 /* NewsPortalApp.swift in Sources */,
 				7FC9E7318D3003A96BD5951A /* PageFetcher.swift in Sources */,
+				2DBDAF8D0042D8DCB58FE33D /* Quiz.swift in Sources */,
+				AFD676409A2D0EB503196E86 /* QuizService.swift in Sources */,
+				703005898EFFE2BAED15E55F /* QuizView.swift in Sources */,
 				2F02158DC9210F08011AB680 /* RSSService.swift in Sources */,
+				6BCA8BD1FD61B550DB48CAB6 /* SettingsView.swift in Sources */,
 				034603DB901D53EEF8FAFC81 /* Source.swift in Sources */,
 				FA3B6570E42F73CA07A23BD8 /* SourceListView.swift in Sources */,
 				7B5C93A3B453308EA5BD6B51 /* SourceRowView.swift in Sources */,
@@ -234,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E01D0578997CC36AF57D28C2 /* PageFetcherTests.swift in Sources */,
+				683FD53FD5239EA53D4C9229 /* QuizTests.swift in Sources */,
 				AEBE754B89D776FA14E58C9A /* RSSServiceTests.swift in Sources */,
 				DB39454F18B2C34A2EE31905 /* SourceStoreTests.swift in Sources */,
 				8A522D0AD524A07E3DA4B11A /* SourceTests.swift in Sources */,
@@ -255,7 +275,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NewsPortal/NewsPortal.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -271,7 +290,6 @@
 				PRODUCT_NAME = NewsPortal;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;
-				com.apple.security.network.client = YES;
 			};
 			name = Release;
 		};
@@ -434,7 +452,6 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = NewsPortal/NewsPortal.entitlements;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				GENERATE_INFOPLIST_FILE = YES;
@@ -450,7 +467,6 @@
 				PRODUCT_NAME = NewsPortal;
 				SDKROOT = macosx;
 				SWIFT_VERSION = 5.9;
-				com.apple.security.network.client = YES;
 			};
 			name = Debug;
 		};

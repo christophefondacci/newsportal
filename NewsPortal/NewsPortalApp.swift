@@ -7,5 +7,9 @@ struct NewsPortalApp: App {
             ContentView()
         }
         .defaultSize(width: 1100, height: 700)
+
+        Settings {
+            SettingsView()
+        }
     }
 }

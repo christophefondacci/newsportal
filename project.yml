@@ -26,14 +26,8 @@ targets:
         GENERATE_INFOPLIST_FILE: YES
         INFOPLIST_KEY_NSMainNibFile: ""
         INFOPLIST_KEY_NSPrincipalClass: NSApplication
-        com.apple.security.network.client: true
     dependencies:
       - package: FeedKit
-    entitlements:
-      path: NewsPortal/NewsPortal.entitlements
-      properties:
-        com.apple.security.app-sandbox: true
-        com.apple.security.network.client: true
 
   NewsPortalTests:
     type: bundle.unit-test

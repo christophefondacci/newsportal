@@ -68,7 +68,32 @@ class SourceStore: ObservableObject {
         }
     }
 
+    func addQuizPage(sourceID: UUID, quizPage: QuizPage) {
+        if let index = sources.firstIndex(where: { $0.id == sourceID }) {
+            sources[index].quizPages.append(quizPage)
+            save()
+        }
+    }
+
+    func recordQuizAttempt(sourceID: UUID, quizPageID: UUID, questionID: UUID, correct: Bool) {
+        guard let si = sources.firstIndex(where: { $0.id == sourceID }),
+              let pi = sources[si].quizPages.firstIndex(where: { $0.id == quizPageID }),
+              let qi = sources[si].quizPages[pi].questions.firstIndex(where: { $0.id == questionID })
+        else { return }
+        sources[si].quizPages[pi].questions[qi].recordAttempt(correct: correct)
+        save()
+    }
+
     func load() {
+        // Migrate from sandbox container if needed
+        if !FileManager.default.fileExists(atPath: fileURL.path) {
+            let sandboxed = FileManager.default.homeDirectoryForCurrentUser
+                .appendingPathComponent("Library/Containers/com.newsportal.app/Data/Library/Application Support/NewsPortal/sources.json")
+            if FileManager.default.fileExists(atPath: sandboxed.path) {
+                try? FileManager.default.copyItem(at: sandboxed, to: fileURL)
+            }
+        }
+
         guard FileManager.default.fileExists(atPath: fileURL.path) else { return }
         do {
             let data = try Data(contentsOf: fileURL)
