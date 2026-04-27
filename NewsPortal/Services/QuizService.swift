@@ -33,7 +33,16 @@ class QuizService: QuizGenerating {
         }
 
         let prompt = """
-        Analyze the following web page content and generate exactly 10 quiz questions with answers about the key aspects of the content. Also generate a short, accurate title describing the page's content (you may use the original page title "\(pageTitle)" if it's a good representation, or create a better one).
+        You are helping a reader remember the gist of an article they just read. Analyze the following web page content and generate exactly 10 quiz questions with answers.
+
+        Guidelines:
+        - Questions should be specific and direct, targeting one clear fact or concept each
+        - Focus on the important points: main findings, key concepts, why it matters — skip trivial details
+        - Answers MUST be short: a few words to one sentence max. Think flashcard-style.
+        - Example good Q&A: "What causes X?" → "Y inhibits Z, leading to cell death."
+        - Example bad Q&A: "What causes X?" → "According to the researchers, the primary mechanism involves Y, which acts by inhibiting Z. This process ultimately leads to..." (too long)
+
+        Also generate a short, accurate title describing the page's content (you may use the original page title "\(pageTitle)" if it's a good representation, or create a better one).
 
         Respond ONLY with valid JSON in this exact format, no markdown, no code fences:
         {"title": "...", "questions": [{"question": "...", "answer": "..."}, ...]}
